@@ -1,102 +1,184 @@
-
-<!DOCTYPE html>
 <html lang="en">
+<head>
+	<meta charset="utf-8" />
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <head>
+	<title>Dashboard</title>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Contact Form Tutorial</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+  
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/animate.min.css" rel="stylesheet"/>
+    <link href="bootstrap/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/form-elements.css">
-        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+<div class="wrapper">
+    <div class="sidebar" data-color="red" data-image="img/sidebar-5.jpg">
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <img src="https://www.georanker.com/app/themes/georanker/img/misc/logo/logo-georanker-header.png" title="GeoRanker" alt="GeoRanker">
+            </div>
 
-        <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
+            <ul class="nav">
+                <li class="active">
+                    <a href="index.php">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="new-report.php">
+                        <i class="pe-7s-note"></i>
+                        <p>New Report</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div>
 
-    </head>
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+            </div>
+        </nav>
 
-    <body>
 
-		<!-- Top content -->
-        <div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Bootstrap Contact Form Tutorial</h1>
-                            <div class="description">
-                            	<p>
-	                            	Learn how to create a working Bootstrap contact form using PHP, jQuery, AJAX, HTML5 and CSS3. 
-	                            	Check it out on <a href="http://azmind.com">AZMIND</a>!
-                            	</p>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Reports</h4>
+                                <p class="category">All reports are listed here</p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                    			<h3>Contact us</h3>
-                        		<p>Fill in the form below to send us a message:</p>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                        <th>ID</th>
+                                    	<th>Name</th>
+                                    	<th>Salary</th>
+                                    	<th>Country</th>
+                                    	<th>City</th>
+                                    </thead>
+                                    <tbody>
+                                    <?PHP
+                                        function CallAPI($url)
+                                        {
+                                            $curl = curl_init();
+
+                                            curl_setopt($curl, CURLOPT_URL, $url);
+                                            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+                                            $result = curl_exec($curl);
+
+                                            curl_close($curl);
+
+                                            return $result;
+                                        }
+                                        echo CallAPI("https://api.georanker.com/v1/api/login.json?email=hygor.c.luz%40gmail.com&apikey=17899634ef4a5a19b97374bc79d7a1af");
+                                        //$array = array("foo", "bar", "hello", "world");
+                                        //echo "<tr>";
+                                        //foreach ($array as $report) {
+                                        //    echo "<a href='#' class='list-group-item'>$report</a>";
+                                        //}
+                                        //echo "</div>";
+                                    ?>
+                                        <tr>
+                                        	<td>1</td>
+                                        	<td>Dakota Rice</td>
+                                        	<td>$36,738</td>
+                                        	<td>Niger</td>
+                                        	<td>Oud-Turnhout</td>
+                                        </tr>
+                                        <tr>
+                                        	<td>2</td>
+                                        	<td>Minerva Hooper</td>
+                                        	<td>$23,789</td>
+                                        	<td>Curaçao</td>
+                                        	<td>Sinaai-Waas</td>
+                                        </tr>
+                                        <tr>
+                                        	<td>3</td>
+                                        	<td>Sage Rodriguez</td>
+                                        	<td>$56,142</td>
+                                        	<td>Netherlands</td>
+                                        	<td>Baileux</td>
+                                        </tr>
+                                        <tr>
+                                        	<td>4</td>
+                                        	<td>Philip Chaney</td>
+                                        	<td>$38,735</td>
+                                        	<td>Korea, South</td>
+                                        	<td>Overland Park</td>
+                                        </tr>
+                                        <tr>
+                                        	<td>5</td>
+                                        	<td>Doris Greene</td>
+                                        	<td>$63,542</td>
+                                        	<td>Malawi</td>
+                                        	<td>Feldkirchen in Kärnten</td>
+                                        </tr>
+                                        <tr>
+                                        	<td>6</td>
+                                        	<td>Mason Porter</td>
+                                        	<td>$78,615</td>
+                                        	<td>Chile</td>
+                                        	<td>Gloucester</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
-                            <div class="form-bottom contact-form">
-			                    <form role="form" action="contact.php" method="post">
-			                    	<div class="form-group">
-			                    		<label class="sr-only" for="contact-email">Email</label>
-			                        	<input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="contact-subject">Subject</label>
-			                        	<input type="text" name="subject" placeholder="Subject..." class="contact-subject form-control" id="contact-subject">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="contact-message">Message</label>
-			                        	<textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
-			                        </div>
-			                        <div class="form-group">
-			                        	<label for="contact-antispam">Antispam question: 7 + 5 = ?</label>
-			                        	<input type="text" name="antispam" placeholder="Your answer..." class="contact-antispam form-control" id="contact-antispam">
-			                        </div>
-			                        <button type="submit" class="btn">Send message</button>
-			                    </form>
-		                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
 
 
-        <!-- Javascript -->
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/scripts.js"></script>
-        
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="index.php">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; 2017 <a href="https://github.com/hygorluz">Hygor Luz</a>
+                </p>
+            </div>
+        </footer>
 
-    </body>
+    </div>
+</div>
+
+
+</body>
+    <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
+    <script src="bootstrap/js/bootstrap-notify.js"></script>
+	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
 
 </html>
-<?php
-phpinfo();
-?>

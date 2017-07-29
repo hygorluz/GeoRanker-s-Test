@@ -51,7 +51,7 @@ img { max-width: 100%; }
 	color: #fff;
 }
 
-.top-content .description a { color: #fff; border-bottom: 2px dotted #fff; }
+.top-content .description a { color: #fff; border-bottom: 2px dotted #fff; background: transparent;}
 .top-content .description a:hover, 
 .top-content .description a:focus { border: 0; }
 
