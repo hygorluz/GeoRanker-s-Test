@@ -85,7 +85,8 @@
                                         	<td>$36,738</td>
                                         	<td>Niger</td>
                                         	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>                                     
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
                                             </td>
                                         </tr>
                                         <tr>
@@ -93,35 +94,50 @@
                                         	<td>Minerva Hooper</td>
                                         	<td>$23,789</td>
                                         	<td>Curaçao</td>
-                                        	<td>Sinaai-Waas</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
+                                            </td>
                                         </tr>
                                         <tr>
                                         	<td>3</td>
                                         	<td>Sage Rodriguez</td>
                                         	<td>$56,142</td>
                                         	<td>Netherlands</td>
-                                        	<td>Baileux</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
+                                            </td>
                                         </tr>
                                         <tr>
                                         	<td>4</td>
                                         	<td>Philip Chaney</td>
                                         	<td>$38,735</td>
                                         	<td>Korea, South</td>
-                                        	<td>Overland Park</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
+                                            </td>
                                         </tr>
                                         <tr>
                                         	<td>5</td>
                                         	<td>Doris Greene</td>
                                         	<td>$63,542</td>
                                         	<td>Malawi</td>
-                                        	<td>Feldkirchen in Kärnten</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
+                                            </td>
                                         </tr>
                                         <tr>
                                         	<td>6</td>
                                         	<td>Mason Porter</td>
                                         	<td>$78,615</td>
                                         	<td>Chile</td>
-                                        	<td>Gloucester</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
+                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

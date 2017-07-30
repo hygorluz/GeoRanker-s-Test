@@ -28,3 +28,25 @@ jQuery(document).ready(function() {
 function getUserSession(){
 	return userSession;
 }
+
+function callDelete(idReport){
+    $.ajax({
+		url: 'api-georanker.php',
+		type: "post", //request type,
+        data: {action: "delete", session:userSession, id:idReport},
+		success: function(result) {
+			console.log(result);
+		}
+	});
+}
+
+function callDetails(idReport){
+    $.ajax({
+		url: 'api-georanker.php',
+		type: "post", //request type,
+        data: {action: "details", session:userSession, id:idReport},
+		success: function(result) {
+			console.log(result);
+		}
+	});
+}

@@ -1,6 +1,7 @@
 <?php
 $action = $_POST['action'];
 $session = $_POST['session'];
+$id = $_POST['id'];
 
 static $teste;
 function callAPI($url,$method,$data = false)
@@ -48,5 +49,13 @@ if ($action == "list"){
 if ($action == "login"){
     $login = json_decode(callAPI("https://api.georanker.com/v1/api/login.json?email=hygor.c.luz%40gmail.com&apikey=17899634ef4a5a19b97374bc79d7a1af","GET", false),true);
     echo (string)$login['session'];
+}
+
+if ($action == "delete"){
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=hygor.c.luz%40gmail.com&session=".$session,"DELETE", false));
+}
+
+if ($action == "details"){
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false));
 }
 ?>
