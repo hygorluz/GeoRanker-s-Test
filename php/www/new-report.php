@@ -70,30 +70,28 @@
                             <div class="content">
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Type </label>
                                                 <div class="dropdown">
-                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                                                    <span class="caret"></span></button>
-                                                    <ul class="dropdown-menu">
-                                                    <li><a href="#">HTML</a></li>
-                                                    <li><a href="#">CSS</a></li>
-                                                    <li><a href="#">JavaScript</a></li>
+                                                    <button id="drop-btn" class="btn btn-primary dropdown-toggle" style="border-color: #E3E3E3;color: #565656; background: transparent; width: 100%; text-align: left;" type="button" data-toggle="dropdown">ranktracker
+                                                    <span class="caret" style="border-top-color: #565656;text-align: rigth;margin-left: 85%"></span></button>
+                                                    <ul id="demolist" class="dropdown-menu" style="width: 100%;">
+                                                        <li><a href="#">heatmap</a></li>
+                                                        <li><a href="#">1stpage</a></li>
+                                                        <li><a href="#">advertisers</a></li>
+                                                        <li><a href="#">authors</a></li>
+                                                        <li><a href="#">citations</a></li>
+                                                        <li><a href="#">sitereport</a></li>
+                                                        <li><a href="#">keywordrankings</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Domain</label>
-                                                <input type="text" class="form-control" placeholder="Domain">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                        </div>                                        
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Keywords</label>
-                                                <input type="email" class="form-control" placeholder="Keywords">
+                                                <input type="email" class="form-control" placeholder="Keywords (Key1, Key2, Key3)">
                                             </div>
                                         </div>
                                     </div>
@@ -102,13 +100,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Countries</label>
-                                                <input type="text" class="form-control" placeholder="Countries">
+                                                <input type="text" class="form-control" placeholder="Countries (BR, CA, GB, US)">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Search Engine</label>
-                                                <input type="text" class="form-control" placeholder="Search Engine">
+                                                <input type="text" class="form-control" placeholder="Search Engine (google, googlelocal, yahoo)">
                                             </div>
                                         </div>
                                     </div> 
@@ -117,6 +115,24 @@
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                           
+                            <div class="content">
+                                <h3 class="title">Instructions</h><br/>
+                                <br/>
+                                <h5 class="title">Search Engines</h4><br/> 
+                                <p class="form-control" style="height: 75px;">List of Search Engines (google, googlelocal, yahoo, bing, yandex, youtube, naverwebdocs, naverlocal, baidu,googlenews, googleimages). Default: google.
+                                </p><br/>
+                                <h5 class="title">Countries</h4><br/> 
+                                <p class="form-control">List of Country codes. Use this param or Region.</p>
+                                <br/>
+                                <h5 class="title">Countries</h4><br/> 
+                                <p class="form-control">List of Country codes. Use this param or Region.</p>
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -152,5 +168,14 @@
 	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
     <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $('#demolist li a').on('click', function(){
+                $('#drop-btn').val($(this).html());
+                $('#drop-btn')[0].innerHTML = $(this).html();
+                
+            });
+        });
+    </script>
 
 </html>

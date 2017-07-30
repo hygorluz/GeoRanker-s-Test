@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
         return session;
     }
 }).responseText;
-getUserSession();
+
 	$.ajax({
 		url: 'api-georanker.php',
 		type: "post", //request type,

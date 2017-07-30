@@ -71,11 +71,11 @@
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID</th>
-                                    	<th>Name</th>
-                                    	<th>Salary</th>
-                                    	<th>Country</th>
-                                    	<th>City</th>
+                                        <th>Type</th>
+                                    	<th>Keywords</th>
+                                    	<th>Countries</th>
+                                    	<th>Search Engine</th>
+                                    	<th>Actions</th>
                                     </thead>
                                     <tbody>
                                     
@@ -84,7 +84,9 @@
                                         	<td>Dakota Rice</td>
                                         	<td>$36,738</td>
                                         	<td>Niger</td>
-                                        	<td>Oud-Turnhout</td>
+                                        	<td>                                           
+                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>                                     
+                                            </td>
                                         </tr>
                                         <tr>
                                         	<td>2</td>
@@ -160,4 +162,5 @@
     <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
     <script src="js/scripts.js"></script>
+
 </html>
