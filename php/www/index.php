@@ -78,28 +78,7 @@
                                     	<th>City</th>
                                     </thead>
                                     <tbody>
-                                    <?PHP
-                                        function CallAPI($url)
-                                        {
-                                            $curl = curl_init();
-
-                                            curl_setopt($curl, CURLOPT_URL, $url);
-                                            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-                                            $result = curl_exec($curl);
-
-                                            curl_close($curl);
-
-                                            return $result;
-                                        }
-                                        echo CallAPI("https://api.georanker.com/v1/api/login.json?email=hygor.c.luz%40gmail.com&apikey=17899634ef4a5a19b97374bc79d7a1af");
-                                        //$array = array("foo", "bar", "hello", "world");
-                                        //echo "<tr>";
-                                        //foreach ($array as $report) {
-                                        //    echo "<a href='#' class='list-group-item'>$report</a>";
-                                        //}
-                                        //echo "</div>";
-                                    ?>
+                                    
                                         <tr>
                                         	<td>1</td>
                                         	<td>Dakota Rice</td>
@@ -180,5 +159,5 @@
 	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
     <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
-
+    <script src="js/scripts.js"></script>
 </html>
