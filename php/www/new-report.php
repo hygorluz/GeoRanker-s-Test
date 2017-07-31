@@ -77,6 +77,7 @@
                                                     <button id="drop-btn" class="btn btn-primary dropdown-toggle" style="border-color: #E3E3E3;color: #565656; background: transparent; width: 100%; text-align: left;" type="button" data-toggle="dropdown">ranktracker
                                                     <span class="caret" style="border-top-color: #565656;text-align: rigth;margin-left: 85%"></span></button>
                                                     <ul id="demolist" class="dropdown-menu" style="width: 100%;">
+                                                        <li><a href="#">ranktracker</a></li>
                                                         <li><a href="#">heatmap</a></li>
                                                         <li><a href="#">1stpage</a></li>
                                                         <li><a href="#">advertisers</a></li>
@@ -111,7 +112,7 @@
                                         </div>
                                     </div> 
 
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Create</button>
+                                    <button id="create-report" type="submit" class="btn btn-info btn-fill pull-right">Create</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -173,7 +174,7 @@
         jQuery(document).ready(function() {
             $('#demolist li a').on('click', function(){
                 $('#drop-btn').val($(this).html());
-                $('#drop-btn')[0].innerHTML = $(this).html();
+                $('#drop-btn')[0].innerHTML = $(this).html()+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
                 
             });
         });

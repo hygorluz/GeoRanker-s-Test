@@ -26,6 +26,8 @@ if(passedId){
             $("#keywords").val(jsonReport.keywords);
             $("#countries").val(jsonReport.countries);
             $("#search-engine").val(jsonReport.searchengines);
+
+            displayDetails(jsonReport.type);
 			//console.log(jsonReport.id);
 		}
 	});
@@ -46,3 +48,15 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
+function displayDetails(type){
+    $("#keywords").attr('disabled','disabled');
+    $("#countries").attr('disabled','disabled');
+    $("#search-engine").attr('disabled','disabled');
+    $("#create-report").attr('disabled','disabled');
+
+    $('#drop-btn').val(type);
+    $('#drop-btn')[0].innerHTML = type+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
+    $("#drop-btn").attr('disabled','disabled');
+
+}
