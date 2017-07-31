@@ -4,5 +4,6 @@ This test was made for the Full-Stack Developer role at GeoRanker, and is part o
 # Instructions
 
 1 - Download the php directory.
+
 2 - To test, run command 'docker-compose up' in php directory.
 
