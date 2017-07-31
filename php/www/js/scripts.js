@@ -19,11 +19,10 @@ jQuery(document).ready(function() {
 		type: "post", //request type,
         data: {action: "list", session:userSession},
 		success: function(result) {
-			console.log(result);
+			$('#report-list').append(result)
 		}
 	});
 });
-
 
 function getUserSession(){
 	return userSession;
@@ -35,18 +34,14 @@ function callDelete(idReport){
 		type: "post", //request type,
         data: {action: "delete", session:userSession, id:idReport},
 		success: function(result) {
-			console.log(result);
+			location.reload();
 		}
 	});
 }
 
 function callDetails(idReport){
-    $.ajax({
-		url: 'api-georanker.php',
-		type: "post", //request type,
-        data: {action: "details", session:userSession, id:idReport},
-		success: function(result) {
-			console.log(result);
-		}
-	});
+	
+	window.location = "new-report.php?id="+idReport;
+
+    
 }

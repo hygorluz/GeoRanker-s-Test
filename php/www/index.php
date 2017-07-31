@@ -77,68 +77,9 @@
                                     	<th>Search Engine</th>
                                     	<th>Actions</th>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="report-list">
                                     
-                                        <tr>
-                                        	<td>1</td>
-                                        	<td>Dakota Rice</td>
-                                        	<td>$36,738</td>
-                                        	<td>Niger</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>2</td>
-                                        	<td>Minerva Hooper</td>
-                                        	<td>$23,789</td>
-                                        	<td>Curaçao</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>3</td>
-                                        	<td>Sage Rodriguez</td>
-                                        	<td>$56,142</td>
-                                        	<td>Netherlands</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>4</td>
-                                        	<td>Philip Chaney</td>
-                                        	<td>$38,735</td>
-                                        	<td>Korea, South</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>5</td>
-                                        	<td>Doris Greene</td>
-                                        	<td>$63,542</td>
-                                        	<td>Malawi</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        	<td>6</td>
-                                        	<td>Mason Porter</td>
-                                        	<td>$78,615</td>
-                                        	<td>Chile</td>
-                                        	<td>                                           
-                                                    <button class="btn btn-primary" type="button" onclick="callDelete()">DELETE</button>
-                                                    <button class="btn btn-primary" type="button" onclick="callDetails()">DETAILS</button>                                     
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
 
@@ -177,6 +118,8 @@
 	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
     <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
+    
     <script src="js/scripts.js"></script>
+    
 
 </html>

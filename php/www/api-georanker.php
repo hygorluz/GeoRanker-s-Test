@@ -41,8 +41,39 @@ function callAPI($url,$method,$data = false)
         }
 
 if ($action == "list"){
-    
-  echo json_encode(callAPI("https://api.georanker.com/v1/report/list.json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false));
+   $reportList =  json_decode(callAPI("https://api.georanker.com/v1/report/list.json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false), true);
+   $reportSize = $reportList['total'];
+   $reportItems = $reportList['items'];
+  
+   $displayedList = "";
+   for ($i = 0; $i < $reportSize; $i++){
+        $keywords = "";
+        $countries = "";
+        $searchengines = "";
+
+        $displayedList .= "<tr>";
+        $displayedList .= "<td>".$reportItems[$i]['type']."</td>";
+        foreach($reportItems[$i]['keywords'] as $result) {
+            $keywords .= "[".$result."] ";
+        }
+        
+        foreach($reportItems[$i]['countries'] as $result) {
+            $countries .= "[".$result."] ";
+        }
+
+        foreach($reportItems[$i]['searchengines'] as $result) {
+            $searchengines .= "[".$result."] ";
+        }
+        $displayedList .= "<td>".$keywords."</td>";
+        $displayedList .= "<td>".$countries."</td>";
+        $displayedList .= "<td>".$searchengines."</td>";
+        $displayedList .= "<td>";
+        $displayedList .= "<button class='btn btn-primary' type='button' onclick='callDelete(".$reportItems[$i]['id'].")' style='margin-right: 10px;'>DELETE</button>";
+        $displayedList .= "<button class='btn btn-primary' type='button' onclick='callDetails(".$reportItems[$i]['id'].")'>DETAILS</button>";
+        $displayedList .= "</td>";
+        $displayedList .= "</tr>";
+    }
+  echo $displayedList;//$reportItems[0]['keywords'][0];
   
 }
 

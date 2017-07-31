@@ -59,7 +59,7 @@
         </nav>
 
 
-        <div class="content">
+        <div id="report-content" class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8">
@@ -91,7 +91,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Keywords</label>
-                                                <input type="email" class="form-control" placeholder="Keywords (Key1, Key2, Key3)">
+                                                <input id="keywords" type="text" class="form-control" placeholder="Keywords (Key1, Key2, Key3)">
                                             </div>
                                         </div>
                                     </div>
@@ -100,13 +100,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Countries</label>
-                                                <input type="text" class="form-control" placeholder="Countries (BR, CA, GB, US)">
+                                                <input id="countries" type="text" class="form-control" placeholder="Countries (BR, CA, GB, US)">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Search Engine</label>
-                                                <input type="text" class="form-control" placeholder="Search Engine (google, googlelocal, yahoo)">
+                                                <input id="search-engine" type="text" class="form-control" placeholder="Search Engine (google, googlelocal, yahoo)">
                                             </div>
                                         </div>
                                     </div> 
@@ -129,8 +129,8 @@
                                 <h5 class="title">Countries</h4><br/> 
                                 <p class="form-control">List of Country codes. Use this param or Region.</p>
                                 <br/>
-                                <h5 class="title">Countries</h4><br/> 
-                                <p class="form-control">List of Country codes. Use this param or Region.</p>
+                                <h5 class="title">Keywords</h4><br/> 
+                                <p class="form-control" style="height: 60px;">List of keywords. You must specify at least one keyword. The keyword must contain at least 3 characters.</p>
                             </div>
                           
                         </div>
@@ -168,6 +168,7 @@
 	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
     <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
+    <script src="js/report-details.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             $('#demolist li a').on('click', function(){
