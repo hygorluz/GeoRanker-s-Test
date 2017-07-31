@@ -18,7 +18,7 @@ passedId = getUrlParameter("id");
 if(passedId){
 	$.ajax({
 		url: 'api-georanker.php',
-		type: "post", //request type,
+		type: "post", 
         data: {action: "details", session:userSession, id:passedId},
 		success: function(result) {
             var json = jQuery.parseJSON(result);
@@ -59,4 +59,33 @@ function displayDetails(type){
     $('#drop-btn')[0].innerHTML = type+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
     $("#drop-btn").attr('disabled','disabled');
 
+}
+
+function callCreateReport(){
+    var report = JSON.stringify({
+  "searchengines": [
+    "google"
+  ],
+  "countries": [
+    "US"
+  ],
+  "keywords": [
+    "pizza",
+    "delivery"
+  ],
+  "type": "ranktracker",
+"urls": [
+    {
+      "url": "pizzahut.com"
+    }
+  ]
+});
+    $.ajax({
+		url: 'api-georanker.php',
+		type: "post", 
+        data: {action: "new", session:userSession, data:report },
+		success: function(result) {
+			console.log(result);
+		}
+	});
 }

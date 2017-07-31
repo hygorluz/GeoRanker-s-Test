@@ -2,6 +2,7 @@
 $action = $_POST['action'];
 $session = $_POST['session'];
 $id = $_POST['id'];
+$data = $_POST['data'];
 
 static $teste;
 function callAPI($url,$method,$data = false)
@@ -10,13 +11,13 @@ function callAPI($url,$method,$data = false)
             switch ($method)
             {
                 case "POST":
-                    curl_setopt($curl, CURLOPT_POST, 1);
+                    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");;
 
                     if ($data)
+                       // $data_string = json_encode($data);
+                        
                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-                    break;
-                case "PUT":
-                    curl_setopt($curl, CURLOPT_PUT, 1);
+                        curl_setopt($curl, CURLOPT_HTTPHEADER,array("Content-Type: application/json","Content-Length: ".strlen($data)));
                     break;
                 case "DELETE":
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
@@ -31,12 +32,7 @@ function callAPI($url,$method,$data = false)
             $result = curl_exec($curl);
 
             curl_close($curl);
-            //5ce1d2d034312f734b0a7e1f6483d28a
-            //'https://api.georanker.com/v1/api/login.json?email=hygor.c.luz%40gmail.com&apikey=17899634ef4a5a19b97374bc79d7a1af' SESSION
-            //'https://api.georanker.com/v1/report/new.json?email=hygor.c.luz%40gmail.com&session=5ce1d2d034312f734b0a7e1f6483d28a' NEW REPORT
-            //'{"searchengines":["google"],"countries":["BR"],"keywords":["teste"],"type":"heatmap"}' NEW REPORT DATA
-            //https://api.georanker.com/v1/report/list.json?email=hygor.c.luz%40gmail.com&session=5ce1d2d034312f734b0a7e1f6483d28a LIST ALL
-            //https://api.georanker.com/v1/report/1762945.json?email=hygor.c.luz%40gmail.com&session=5ce1d2d034312f734b0a7e1f6483d28a DELETE or GET
+
             return $result;
         }
 
@@ -88,5 +84,9 @@ if ($action == "delete"){
 
 if ($action == "details"){
    echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false));
+}
+
+if ($action == "new"){
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/new.json?email=hygor.c.luz%40gmail.com&session=".$session,"POST", $data));
 }
 ?>

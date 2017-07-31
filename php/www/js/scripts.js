@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
 
 	$.ajax({
 		url: 'api-georanker.php',
-		type: "post", //request type,
+		type: "post", 
         data: {action: "list", session:userSession},
 		success: function(result) {
 			$('#report-list').append(result)
@@ -31,7 +31,7 @@ function getUserSession(){
 function callDelete(idReport){
     $.ajax({
 		url: 'api-georanker.php',
-		type: "post", //request type,
+		type: "post", 
         data: {action: "delete", session:userSession, id:idReport},
 		success: function(result) {
 			location.reload();
@@ -45,3 +45,5 @@ function callDetails(idReport){
 
     
 }
+
+

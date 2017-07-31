@@ -68,7 +68,7 @@
                                 <h4 class="title">Create Report</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -112,9 +112,9 @@
                                         </div>
                                     </div> 
 
-                                    <button id="create-report" type="submit" class="btn btn-info btn-fill pull-right">Create</button>
-                                    <div class="clearfix"></div>
-                                </form>
+                                    <button onclick="callCreateReport()" class="btn btn-info btn-fill pull-right">Create</button>
+                                    
+                                
                             </div>
                         </div>
                     </div>
