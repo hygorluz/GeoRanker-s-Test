@@ -170,6 +170,7 @@
     <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
+    <script src="bootstrap/js/bootstrap-notify.js"></script>
     <script src="js/report-details.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {

@@ -70,13 +70,25 @@ function callCreateReport(){
             if(response.status){
                 alert(response.msg);
             }else{
+                notifyCreated();
                 
-                alert("Your report has been created!")
             }
             clearFields();
 			console.log(response.status);
 		}
 	});
+}
+function notifyCreated(){
+ 
+    $.notify({
+        icon: 'pe-7s-gift',
+        message: "Your report has been created!"
+
+    },{
+        type: 'info',
+        timer: 2000
+    });
+	
 }
 
 function creatingReportsObject(){
