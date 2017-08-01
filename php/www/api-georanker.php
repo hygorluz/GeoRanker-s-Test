@@ -36,7 +36,7 @@ function callAPI($url,$method,$data = false)
         }
 
 if ($action == "list"){
-   $reportList =  json_decode(callAPI("https://api.georanker.com/v1/report/list.json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false), true);
+   $reportList =  json_decode(callAPI("https://api.georanker.com/v1/report/list.json?email=skullplayz%40gmail.com&session=".$session,"GET", false), true);
    $reportSize = $reportList['total'];
    $reportItems = $reportList['items'];
   
@@ -79,19 +79,19 @@ if ($action == "list"){
 }
 
 if ($action == "login"){
-    $login = json_decode(callAPI("https://api.georanker.com/v1/api/login.json?email=hygor.c.luz%40gmail.com&apikey=17899634ef4a5a19b97374bc79d7a1af","GET", false),true);
+    $login = json_decode(callAPI("https://api.georanker.com/v1/api/login.json?email=skullplayz%40gmail.com&apikey=0204e5a435b4a060b6db476ba65e8731","GET", false),true);
     echo (string)$login['session'];
 }
 
 if ($action == "delete"){
-   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=hygor.c.luz%40gmail.com&session=".$session,"DELETE", false));
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=skullplayz%40gmail.com&session=".$session,"DELETE", false));
 }
 
 if ($action == "details"){
-   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=hygor.c.luz%40gmail.com&session=".$session,"GET", false));
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/".$id.".json?email=skullplayz%40gmail.com&session=".$session,"GET", false));
 }
 
 if ($action == "new"){
-   echo json_encode(callAPI("https://api.georanker.com/v1/report/new.json?email=hygor.c.luz%40gmail.com&session=".$session,"POST", $data));
+   echo json_encode(callAPI("https://api.georanker.com/v1/report/new.json?email=skullplayz%40gmail.com&session=".$session,"POST", $data));
 }
 ?>

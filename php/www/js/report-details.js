@@ -86,7 +86,7 @@ function creatingReportsObject(){
     var type = $("#drop-btn").val();
     var url = $("#url").val().split(",");
 
-    var urlObject = new Object();
+    
     var reportObject = new Object();   
     
     reportObject.searchengines = searchengines;
@@ -95,6 +95,7 @@ function creatingReportsObject(){
     reportObject.countries = countries;
     var urlArray = [];
      $.each(url, function( index, value ) {
+        var urlObject = new Object();
         urlObject.url = value;
         urlObject.brand = null;
         urlArray.push(urlObject);
