@@ -67,10 +67,10 @@ function callCreateReport(){
         data: {action: "new", session:userSession, data:report },
 		success: function(result) {            
             var response = JSON.parse(JSON.parse(result));
-            if(response.status){
-                alert(response.msg);
+            if(response.status){                
+                notifyCreated("danger",response.msg);
             }else{
-                notifyCreated();
+                notifyCreated("info","Your report has been created!");
                 
             }
             clearFields();
@@ -78,14 +78,14 @@ function callCreateReport(){
 		}
 	});
 }
-function notifyCreated(){
+function notifyCreated(type,msg){
  
     $.notify({
         icon: 'pe-7s-gift',
-        message: "Your report has been created!"
+        message: msg
 
     },{
-        type: 'info',
+        type: type,
         timer: 2000
     });
 	
