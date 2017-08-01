@@ -3,7 +3,7 @@
 	<meta charset="utf-8" />
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <link rel="shortcut icon" href="">
 	<title>Dashboard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -75,6 +75,7 @@
                                     	<th>Keywords</th>
                                     	<th>Countries</th>
                                     	<th>Search Engine</th>
+                                    	<th>Urls</th>
                                     	<th>Actions</th>
                                     </thead>
                                     <tbody id="report-list">
@@ -115,8 +116,6 @@
 </body>
     <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
-    <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
     
     <script src="js/scripts.js"></script>

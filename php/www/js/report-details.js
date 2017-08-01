@@ -1,5 +1,9 @@
 jQuery(document).ready(function() {
     var passedId;
+    passedId = getUrlParameter("id");
+    if(passedId){
+        configDetails();
+    }
 	userSession = $.ajax({
     type: 'POST',       
     url: "api-georanker.php",
@@ -13,22 +17,27 @@ jQuery(document).ready(function() {
     }
 }).responseText;
 
-passedId = getUrlParameter("id");
 
-if(passedId){
+
+if(passedId){    
 	$.ajax({
 		url: 'api-georanker.php',
 		type: "post", 
         data: {action: "details", session:userSession, id:passedId},
-		success: function(result) {
+		success: function(result) {            
             var json = jQuery.parseJSON(result);
             var jsonReport = jQuery.parseJSON(json);
+            configType(jsonReport.type);
             $("#keywords").val(jsonReport.keywords);
             $("#countries").val(jsonReport.countries);
             $("#search-engine").val(jsonReport.searchengines);
+            var urls="";
+            $.each(jsonReport.urls, function( index, value ) {
+                urls += "["+value.url+"],";
 
-            displayDetails(jsonReport.type);
-			//console.log(jsonReport.id);
+            });
+            $("#url").val(urls.slice(0,-1));
+         
 		}
 	});
 }
@@ -49,43 +58,77 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
-function displayDetails(type){
-    $("#keywords").attr('disabled','disabled');
-    $("#countries").attr('disabled','disabled');
-    $("#search-engine").attr('disabled','disabled');
-    $("#create-report").attr('disabled','disabled');
-
-    $('#drop-btn').val(type);
-    $('#drop-btn')[0].innerHTML = type+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
-    $("#drop-btn").attr('disabled','disabled');
-
-}
-
-function callCreateReport(){
-    var report = JSON.stringify({
-  "searchengines": [
-    "google"
-  ],
-  "countries": [
-    "US"
-  ],
-  "keywords": [
-    "pizza",
-    "delivery"
-  ],
-  "type": "ranktracker",
-"urls": [
-    {
-      "url": "pizzahut.com"
-    }
-  ]
-});
+function callCreateReport(){    
+    var report = creatingReportsObject();
+    
     $.ajax({
 		url: 'api-georanker.php',
 		type: "post", 
         data: {action: "new", session:userSession, data:report },
-		success: function(result) {
-			console.log(result);
+		success: function(result) {            
+            var response = JSON.parse(JSON.parse(result));
+            if(response.status){
+                alert(response.msg);
+            }else{
+                
+                alert("Your report has been created!")
+            }
+            clearFields();
+			console.log(response.status);
 		}
 	});
+}
+
+function creatingReportsObject(){
+    var searchengines = $("#search-engine").val().split(",");
+    var countries = $("#countries").val().split(",");
+    var keywords = $("#keywords").val().split(",");
+    var type = $("#drop-btn").val();
+    var url = $("#url").val().split(",");
+
+    var urlObject = new Object();
+    var reportObject = new Object();   
+    
+    reportObject.searchengines = searchengines;
+    reportObject.keywords = keywords;
+    reportObject.type = type;
+    reportObject.countries = countries;
+    var urlArray = [];
+     $.each(url, function( index, value ) {
+        urlObject.url = value;
+        urlObject.brand = null;
+        urlArray.push(urlObject);
+    });
+    reportObject.urls = urlArray;
+    
+    return JSON.stringify(reportObject);
+
+}
+
+
+function configType(type){
+    $('#drop-btn').val(type);
+    $('#drop-btn')[0].innerHTML = type+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
+}
+
+function configDetails(){
+$("#keywords").attr('disabled','disabled');
+    $("#countries").attr('disabled','disabled');
+    $("#search-engine").attr('disabled','disabled');
+    $("#url").attr('disabled','disabled');
+    $("#btn-create").attr('disabled','disabled');
+    $('#btn-create')[0].innerHTML = "Edit";
+    $('#view-title')[0].innerHTML = "Report Details";
+    $('#tab-title')[0].innerHTML = "Report Details";
+     $("#drop-btn").attr('disabled','disabled');
+}
+
+function clearFields(){
+    $("#search-engine").val("");
+    $("#countries").val("");
+    $("#keywords").val("");
+    $('#drop-btn').val("ranktracker");
+    $('#drop-btn')[0].innerHTML = "ranktracker"+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 70%'></span>";
+    $("#url").val("");
+
 }

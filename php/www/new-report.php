@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <link rel="shortcut icon" href="">
 	<title>Dashboard</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -53,7 +53,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">New Report</a>
+                    <a id="tab-title" class="navbar-brand" href="#">Create Report</a>
                 </div>
             </div>
         </nav>
@@ -65,17 +65,17 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Create Report</h4>
+                                <h4 id="view-title" class="title">Create Report</h4>
                             </div>
                             <div class="content">
                                 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Type </label>
                                                 <div class="dropdown">
-                                                    <button id="drop-btn" class="btn btn-primary dropdown-toggle" style="border-color: #E3E3E3;color: #565656; background: transparent; width: 100%; text-align: left;" type="button" data-toggle="dropdown">ranktracker
-                                                    <span class="caret" style="border-top-color: #565656;text-align: rigth;margin-left: 85%"></span></button>
+                                                    <button id="drop-btn" class="btn btn-primary dropdown-toggle" style="border-color: #E3E3E3;color: #565656; background: transparent; width: 100%; text-align: left;" type="button" data-toggle="dropdown" value="ranktracker">ranktracker
+                                                    <span class="caret" style="border-top-color: #565656;text-align: rigth;margin-left: 70%"></span></button>
                                                     <ul id="demolist" class="dropdown-menu" style="width: 100%;">
                                                         <li><a href="#">ranktracker</a></li>
                                                         <li><a href="#">heatmap</a></li>
@@ -89,10 +89,16 @@
                                                 </div>
                                             </div>
                                         </div>                                        
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Keywords</label>
+                                                <label>Keywords</label>
                                                 <input id="keywords" type="text" class="form-control" placeholder="Keywords (Key1, Key2, Key3)">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Urls</label>
+                                                <input id="url" type="text" class="form-control" placeholder="Urls (Url1, Url2, Url3)">
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +107,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Countries</label>
-                                                <input id="countries" type="text" class="form-control" placeholder="Countries (BR, CA, GB, US)">
+                                                <input id="countries" type="text" class="form-control" placeholder="Countries (BR, CA, GB, US)" style="text-transform: uppercase">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -110,11 +116,8 @@
                                                 <input id="search-engine" type="text" class="form-control" placeholder="Search Engine (google, googlelocal, yahoo)">
                                             </div>
                                         </div>
-                                    </div> 
-
-                                    <button onclick="callCreateReport()" class="btn btn-info btn-fill pull-right">Create</button>
-                                    
-                                
+                                        <button id="btn-create"onclick="callCreateReport()" class="btn btn-info btn-fill pull-right" style="margin-right:10px">Create</button>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -166,15 +169,13 @@
 
     <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
 	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="bootstrap/js/bootstrap-checkbox-radio-switch.js"></script>
-    <script src="bootstrap/js/bootstrap-notify.js"></script>
 	<script src="bootstrap/js/light-bootstrap-dashboard.js"></script>
     <script src="js/report-details.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             $('#demolist li a').on('click', function(){
                 $('#drop-btn').val($(this).html());
-                $('#drop-btn')[0].innerHTML = $(this).html()+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 85%'></span>";
+                $('#drop-btn')[0].innerHTML = $(this).html()+ "<span class='caret' style='border-top-color: #565656;text-align: rigth;margin-left: 70%'></span>";
                 
             });
         });

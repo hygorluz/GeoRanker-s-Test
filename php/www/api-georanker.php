@@ -13,11 +13,10 @@ function callAPI($url,$method,$data = false)
                 case "POST":
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");;
 
-                    if ($data)
-                       // $data_string = json_encode($data);
-                        
+                    if ($data){                      
                         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
                         curl_setopt($curl, CURLOPT_HTTPHEADER,array("Content-Type: application/json","Content-Length: ".strlen($data)));
+                    }
                     break;
                 case "DELETE":
                     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
@@ -46,6 +45,7 @@ if ($action == "list"){
         $keywords = "";
         $countries = "";
         $searchengines = "";
+        $urls = "";
 
         $displayedList .= "<tr>";
         $displayedList .= "<td>".$reportItems[$i]['type']."</td>";
@@ -60,9 +60,14 @@ if ($action == "list"){
         foreach($reportItems[$i]['searchengines'] as $result) {
             $searchengines .= "[".$result."] ";
         }
+
+        foreach($reportItems[$i]['urls'] as $result) {
+            $urls .= "[".$result['url']."] ";
+        }
         $displayedList .= "<td>".$keywords."</td>";
         $displayedList .= "<td>".$countries."</td>";
         $displayedList .= "<td>".$searchengines."</td>";
+        $displayedList .= "<td>".$urls."</td>";
         $displayedList .= "<td>";
         $displayedList .= "<button class='btn btn-primary' type='button' onclick='callDelete(".$reportItems[$i]['id'].")' style='margin-right: 10px;'>DELETE</button>";
         $displayedList .= "<button class='btn btn-primary' type='button' onclick='callDetails(".$reportItems[$i]['id'].")'>DETAILS</button>";
